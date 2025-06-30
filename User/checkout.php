@@ -117,7 +117,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                         <tr>
                             <td><?php echo $i; ?></td>
                             <td>
-                                <img src="assets/uploads/<?php echo $arr_cart_p_featured_photo[$i]; ?>" alt="">
+                                <img src="assets/uploads/<?php echo $arr_cart_p_featured_photo[$i]; ?>" alt=""/>
                             </td>
                             <td><?php echo $arr_cart_p_name[$i]; ?></td>
                             <td><?php echo $arr_cart_size_name[$i]; ?></td>
@@ -170,8 +170,6 @@ if(!isset($_SESSION['cart_p_id'])) {
                         </tr>
                     </table> 
                 </div>
-
-                
 
                 <div class="billing-address">
                     <div class="row">
@@ -274,8 +272,6 @@ if(!isset($_SESSION['cart_p_id'])) {
                     </div>                    
                 </div>
 
-                
-
                 <div class="cart-buttons">
                     <ul>
                         <li><a href="cart.php" class="btn btn-primary"><?php echo LANG_VALUE_21; ?></a></li>
@@ -319,30 +315,14 @@ if(!isset($_SESSION['cart_p_id'])) {
 		                	<div class="col-md-4">
 		                		
 	                            <div class="row">
-
 	                                <div class="col-md-12 form-group">
 	                                    <label for=""><?php echo LANG_VALUE_34; ?> *</label>
 	                                    <select name="payment_method" class="form-control select2" id="advFieldsStatus">
 	                                        <option value=""><?php echo LANG_VALUE_35; ?></option>
-	                                        <option value="PayPal"><?php echo LANG_VALUE_36; ?></option>
+	                                        <!-- PayPal option removed -->
 	                                        <option value="Bank Deposit"><?php echo LANG_VALUE_38; ?></option>
 	                                    </select>
 	                                </div>
-
-                                    <form class="paypal" action="<?php echo BASE_URL; ?>payment/paypal/payment_process.php" method="post" id="paypal_form" target="_blank">
-                                        <input type="hidden" name="cmd" value="_xclick" />
-                                        <input type="hidden" name="no_note" value="1" />
-                                        <input type="hidden" name="lc" value="UK" />
-                                        <input type="hidden" name="currency_code" value="USD" />
-                                        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
-
-                                        <input type="hidden" name="final_total" value="<?php echo $final_total; ?>">
-                                        <div class="col-md-12 form-group">
-                                            <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_46; ?>" name="form1">
-                                        </div>
-                                    </form>
-
-
 
                                     <form action="payment/bank/init.php" method="post" id="bank_form">
                                         <input type="hidden" name="amount" value="<?php echo $final_total; ?>">
@@ -365,15 +345,16 @@ if(!isset($_SESSION['cart_p_id'])) {
                                             <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_46; ?>" name="form3">
                                         </div>
                                     </form>
-	                                
+	                                 
 	                            </div>
 		                            
-		                        
+
 		                    </div>
 		                <?php endif; ?>
                         
                 </div>
                 
+
 
                 <?php endif; ?>
 
@@ -381,6 +362,5 @@ if(!isset($_SESSION['cart_p_id'])) {
         </div>
     </div>
 </div>
-
 
 <?php require_once('footer.php'); ?>
